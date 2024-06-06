@@ -7,6 +7,15 @@ import { useState, useEffect } from "react"
 
 export function Content() {
   const [horses, setHorses] = useState([]);
+  const [currentHorse, setCurrentHorse] = useState({});
+
+  const handleCreateHorse = (theParams) => {
+    console.log("creating horse passed to content");
+    axios.post("http://localhost:3000/horses.json", theParams).then((response) => {
+      console.log(response.data);
+      window.location.href = '/';
+    })
+  }
 
 
   //render basic data so we have a template
@@ -24,7 +33,7 @@ export function Content() {
   return (
     <main>
       <h1>Welcome to the world of Horses!</h1>
-      <HorsesNew />
+      <HorsesNew onSubmit={handleCreateHorse} />
       <br/>
       <br/>
       <br/>
