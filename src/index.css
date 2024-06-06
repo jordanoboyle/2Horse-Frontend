@@ -1,3 +1,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+.HorseIndex {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px
+}
+
+#horseImage {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}

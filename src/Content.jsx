@@ -1,4 +1,5 @@
 import { HorsesIndex } from "./HorsesIndex"
+import { HorsesNew } from "./HorsesNew";
 import axios from "axios"
 import { useState, useEffect } from "react"
 
@@ -17,12 +18,16 @@ export function Content() {
       console.log(response.data);
       setHorses(response.data);
     })
-    
   } 
+  useEffect(handleHorsesIndex, [])
 
   return (
     <main>
-      <h1>Welcome to React!</h1>
+      <h1>Welcome to the world of Horses!</h1>
+      <HorsesNew />
+      <br/>
+      <br/>
+      <br/>
       <HorsesIndex horses={horses} />
     </main>
   )
