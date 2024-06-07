@@ -45,6 +45,19 @@ export function Content() {
     setIsHorsesShowVisible(true);
   }
 
+  //transfer axios patch request 
+  // pass params to axios request and horse id
+  // close modal
+  //fancy refresh with JS logic something like if (horse.id === id) {setHorses = something}
+  const handleUpdateHorse = (theParams, id) => {
+    console.log("updating horse from Content");
+    axios.patch(`http://localhost:3000/horses/${id}.json`, theParams).then((response) => {
+      console.log(response.data)
+      window.location.href = "/"
+      
+    }
+  )}
+
   const closeModal = () => {
     console.log("closing the modal");
     setIsHorsesShowVisible(false)
@@ -61,7 +74,7 @@ export function Content() {
       <br/>
       <HorsesIndex horses={horses} onShowHorse={handleShowHorse} />
       <Modal show={isHorsesShowVisible} onClose={closeModal} >
-        <HorsesShow horse={currentHorse} />
+        <HorsesShow horse={currentHorse} onHorseUpdate={handleUpdateHorse}/>
       </Modal >
     </main>
   )

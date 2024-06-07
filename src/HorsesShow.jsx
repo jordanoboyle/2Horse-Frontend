@@ -11,11 +11,8 @@ export function HorsesShow(props) {
   console.log("submitting the new horse data")
   event.preventDefault();
   const params = new FormData(event.target);
-  axios.patch(`http://localhost:3000/horses/${props.horse.id}.json`, params).then((response) => {
-    console.log(response.data)
-    window.location.href = "/"
-  })
-  
+  props.onHorseUpdate(params, props.horse.id);
+  console.log("transferring submit to content")
   }
 
   return (
