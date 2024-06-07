@@ -1,5 +1,7 @@
 import { HorsesIndex } from "./HorsesIndex"
 import { HorsesNew } from "./HorsesNew";
+import { Modal } from "./Modal";
+import { HorseShow } from "./HorsesShow";
 import axios from "axios"
 import { useState, useEffect } from "react"
 
@@ -8,6 +10,7 @@ import { useState, useEffect } from "react"
 export function Content() {
   const [horses, setHorses] = useState([]);
   const [currentHorse, setCurrentHorse] = useState({});
+  const [isShowVisible, setIsShowVisible] = useState(true)
 
   const handleCreateHorse = (theParams, successCallback) => {
     console.log("creating horse passed to content");
@@ -29,6 +32,10 @@ export function Content() {
       setHorses(response.data);
     })
   } 
+
+  //create modal, get modal to show on true or not on false. 
+  // get modal to open and close on click
+
   useEffect(handleHorsesIndex, [])
 
   return (
@@ -39,6 +46,9 @@ export function Content() {
       <br/>
       <br/>
       <HorsesIndex horses={horses} />
+      <Modal isShowVisible={true}>
+        This is Modal show
+      </Modal >
     </main>
   )
 }

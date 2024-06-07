@@ -15,6 +15,7 @@ export function HorsesIndex(props) {
           <p>Build: {horse.build} </p>
           <p>Color: {horse.color} </p>
           <p>Price: {horse.price}</p>
+          <button>Show More Info/Update</button>
         </div>
     ))}
       </div>
