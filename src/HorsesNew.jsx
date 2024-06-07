@@ -1,9 +1,6 @@
-import axios from "axios"
 
 export function HorsesNew(props) {
-// transfer axios post to content under handleCreateHorse function
-//props inserted in HorseNew
-//pass event params to props, and content props.onSubmit.params?
+
   const handleSubmitHorse = (event) => {
     event.preventDefault();
     console.log("handling horse data submit");

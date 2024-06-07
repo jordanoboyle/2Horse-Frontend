@@ -1,6 +1,3 @@
-import axios from "axios"
-import { useState } from "react";
-
 
 export function HorsesIndex(props) {
   console.log(props)

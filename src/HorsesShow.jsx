@@ -1,11 +1,5 @@
-import axios from "axios"
 
 export function HorsesShow(props) {
-//build a form
-// build a submitForm function that shows console.log
-//prefill form with props data
-//mimic httpie patch web request and transfer data to API
-// reset page
 
   const submitFormHorse = (event) => {
   console.log("submitting the new horse data")
@@ -15,16 +9,9 @@ export function HorsesShow(props) {
   console.log("transferring submit to content")
   }
 
-  //create the delete function and render console.log
-  //event.prevent
-  //delete axios request test hardcode
-  //make dynamic with props.horse.id
-  //shift to content
   const deleteHorse = () => {
     console.log("getting delete request");
-    axios.delete(`http://localhost:3000/horses/${props.horse.id}.json`);
-    window.location.href = '/'
-    
+    props.onHorseDestroy(props.horse.id);
   }
 
   return (
