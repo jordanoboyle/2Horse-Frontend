@@ -1,7 +1,21 @@
 import axios from "axios"
 
 export function HorsesShow(props) {
+//build a form
+// build a submitForm function that shows console.log
+//prefill form with props data
+//mimic httpie patch web request and transfer data to API
+// reset page
 
+  const submitFormHorse = (event) => {
+  console.log("submitting the new horse data")
+  event.preventDefault();
+  const params = new FormData(event.target);
+  axios.patch("http://localhost:3000/horses/{id}.json").then((response) => {
+
+  })
+  
+  }
 
   return (
     <div>
@@ -12,13 +26,13 @@ export function HorsesShow(props) {
       <br/>
       <br/>
       <br/>
-      <form>
-        <p>Breed: <input type="text" name="breed"/> </p>
-        <p>Build: <input type="text" name="build"/> </p>
-        <p>Color: <input type="text" name="color"/> </p>
-        <p>Price: <input type="text" name="price"/> </p>
-        <p>Image_url: <input type="text" name="image_url"/> </p>
-        <button>Submit Horse Information Update</button>
+      <form onSubmit={submitFormHorse}>
+        <p>Breed: <input type="text" name="breed" defaultValue={props.horse.breed} />  </p>
+        <p>Build: <input type="text" name="build" defaultValue={props.horse.build} />  </p>
+        <p>Color: <input type="text" name="color" defaultValue={props.horse.color} />  </p>
+        <p>Price: <input type="text" name="price" defaultValue={props.horse.price} />  </p>
+        <p>Image_url: <input type="text" name="image_url" defaultValue={props.horse.image_url} />  </p>
+        <button type="submit">Submit Horse Information Update</button>
       </form>
     </div>
   )
