@@ -9,11 +9,12 @@ export function Content() {
   const [horses, setHorses] = useState([]);
   const [currentHorse, setCurrentHorse] = useState({});
 
-  const handleCreateHorse = (theParams) => {
+  const handleCreateHorse = (theParams, successCallback) => {
     console.log("creating horse passed to content");
     axios.post("http://localhost:3000/horses.json", theParams).then((response) => {
       console.log(response.data);
-      window.location.href = '/';
+      setHorses([...horses, response.data]);
+      successCallback()
     })
   }
 

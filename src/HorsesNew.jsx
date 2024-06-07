@@ -8,7 +8,7 @@ export function HorsesNew(props) {
     event.preventDefault();
     console.log("handling horse data submit");
     const params = new FormData(event.target);
-    props.onSubmit(params);
+    props.onSubmit(params, (() => {event.target.reset()}));
   }
 
   return (
