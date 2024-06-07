@@ -1,11 +1,14 @@
 import axios from "axios"
 
-export function HorseShow() {
+export function HorsesShow(props) {
 
 
   return (
     <div>
-      This will be the show action in the modal
+      <h1>Extra Inforamtion</h1>
+      <p>ID: {props.horse.id}</p>
+      <p>Breed: {props.horse.breed}</p>
+      <p>Color: {props.horse.breed}</p>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 export function HorsesIndex(props) {
-
+  console.log(props)
   return (
     <div>
       <h1>All Horses</h1>
@@ -15,7 +15,7 @@ export function HorsesIndex(props) {
           <p>Build: {horse.build} </p>
           <p>Color: {horse.color} </p>
           <p>Price: {horse.price}</p>
-          <button>Show More Info/Update</button>
+          <button onClick={() => props.onShowHorse(horse)}>Show More Info/Update</button>
         </div>
     ))}
       </div>
