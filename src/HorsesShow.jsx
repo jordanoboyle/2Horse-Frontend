@@ -15,6 +15,18 @@ export function HorsesShow(props) {
   console.log("transferring submit to content")
   }
 
+  //create the delete function and render console.log
+  //event.prevent
+  //delete axios request test hardcode
+  //make dynamic with props.horse.id
+  //shift to content
+  const deleteHorse = () => {
+    console.log("getting delete request");
+    axios.delete(`http://localhost:3000/horses/${props.horse.id}.json`);
+    window.location.href = '/'
+    
+  }
+
   return (
     <div>
       <h1>Extra Inforamtion</h1>
@@ -32,6 +44,9 @@ export function HorsesShow(props) {
         <p>Image_url: <input type="text" name="image_url" defaultValue={props.horse.image_url} />  </p>
         <button type="submit">Submit Horse Information Update</button>
       </form>
+        <br/>
+        <br/>
+        <button onClick={deleteHorse} > Delete Horse </button>
     </div>
   )
 }

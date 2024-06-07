@@ -53,10 +53,26 @@ export function Content() {
     console.log("updating horse from Content");
     axios.patch(`http://localhost:3000/horses/${id}.json`, theParams).then((response) => {
       console.log(response.data)
-      window.location.href = "/"
       
-    }
-  )}
+      closeModal()
+
+      setHorses(horses.map((horse) => {
+        if (horse.id === id) {
+          return response.data
+        } else {
+          return horse
+        }}
+      ))
+    })
+  }
+
+  //transfer axios to handleHorseDestroy
+  //have horse id to destroy pass through params
+  //fancy update with JS logic setHorses(logic)
+  const handleHorseDestroy = (id) => {
+    console.log("acceptiong destroy submit from show")
+    axios.delete(`http://localhost:3000/horses/${props.horse.id}.json`);
+  }
 
   const closeModal = () => {
     console.log("closing the modal");
