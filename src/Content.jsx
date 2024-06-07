@@ -10,7 +10,7 @@ import { useState, useEffect } from "react"
 export function Content() {
   const [horses, setHorses] = useState([]);
   const [currentHorse, setCurrentHorse] = useState({});
-  const [isHorsesShowVisible, setIsHorsesShowVisible] = useState(true)
+  const [isHorsesShowVisible, setIsHorsesShowVisible] = useState(false)
 
   const handleCreateHorse = (theParams, successCallback) => {
     console.log("creating horse passed to content");
